@@ -1,0 +1,174 @@
+:root {
+  --accent: #00f6ff;
+  --dark: #0f1014;
+  --dark2: #151720;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #0f1014;
+  scroll-behavior: smooth;
+  color: #fff;
+}
+
+/* accesibilidad */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: .5rem 1rem;
+  z-index: 9999;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+.bg-gradient-dark {
+  background: radial-gradient(circle at top, #181b25 0%, #0f1014 50%, #0a0b0e 100%);
+}
+
+.bg-dark2 {
+  background: rgba(21, 23, 32, .8);
+  backdrop-filter: blur(10px);
+}
+
+/* HERO */
+.hero {
+  min-height: 80vh;
+  background: linear-gradient(135deg, rgba(0,246,255,.02), rgba(25,26,33,1));
+  position: relative;
+}
+.hero img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+/* texto */
+.text-accent { color: var(--accent) !important; }
+
+.btn-accent {
+  background: var(--accent);
+  border: none;
+  color: #000;
+  font-weight: 600;
+}
+.btn-accent:hover {
+  background: #64f9ff;
+  color: #000;
+}
+
+/* tarjetas gamer */
+.card-gamer {
+  background: #151720;
+  border: 1px solid rgba(0,246,255,.08);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.card-gamer img {
+  width: 100%;
+  height: 210px;          /* <-- fuerza todas iguales */
+  object-fit: cover;      /* <-- recorta sin deformar */
+  display: block;
+}
+
+/* animaciones */
+.fade-up {
+  opacity: 0;
+  animation: fadeUp .8s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.floaty {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animated-card {
+  transition: transform .3s ease, box-shadow .3s ease, border .3s ease;
+}
+.animated-card:hover {
+  transform: translateY(-6px);
+  border: 1px solid rgba(0,246,255,.3);
+  box-shadow: 0 15px 45px rgba(0,246,255,.12);
+}
+.btn-animado {
+  position: relative;
+  overflow: hidden;
+}
+.btn-animado::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(255,255,255,.6) 0, transparent 55%);
+  animation: pulse 3s infinite;
+  opacity: .4;
+}
+@keyframes pulse {
+  0% { transform: scale(0); opacity: .5; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.form-animado {
+  animation: zoomIn .6s ease;
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0,246,255,.6);
+}
+
+.feature-box,
+.testimonial {
+  background: #151720;
+  border: 1px solid rgba(255,255,255,.02);
+  border-radius: 1rem;
+  padding: 1.25rem 1.4rem;
+}
+
+/* TESTIMONIOS: aquí estaba tu problema */
+.testimonial img,
+.testimonial figure img {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* por si en el HTML pusiste width/height distintos */
+.testimonial img[width],
+.testimonial img[height] {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.border-accent {
+  border-color: rgba(0,246,255,.6) !important;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--accent) !important;
+}
+
+footer {
+  font-size: .9rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 5rem;
+  }
+}
+
